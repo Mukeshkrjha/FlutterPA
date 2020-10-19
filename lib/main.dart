@@ -12,7 +12,7 @@ class MyPAapp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Personal Assistant - Ask & Click'),
+          title: Center(child: Text('Personal Assistant')),
           backgroundColor: Colors.teal,
         ),
         body: MyHomePage(),
@@ -30,11 +30,21 @@ class _MyHomePageState extends State<MyHomePage> {
   int imageNumber = 1;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FlatButton(
-        onPressed: getAnswer,
-        child: Image.asset('images/ball$imageNumber.png'),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            'Ask Your Question and Click below',
+            style: TextStyle(color: Colors.blueAccent, fontSize: 23.0),
+          ),
+        ),
+        FlatButton(
+          onPressed: getAnswer,
+          child: Image.asset('images/ball$imageNumber.png'),
+        ),
+      ],
     );
   }
 
